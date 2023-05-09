@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.mainlogo {
+    padding-top: 10px;
+    background-color: white;
+    /* padding-right: 4; */
+    margin-left: 55px;
+}
+
+.container {
+    display: flex;
+    /* background-color:red; */
+    padding-bottom: 8px;
+    /* position: fixed; */
+    position: sticky;
+    top: 0;
+    background-color: white;
+    
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(94, 100, 216);
+    background-color: rgb(19, 33, 82);
+}
+
+li {
+    float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color:rgb(9, 9, 82);
+}
+
+/* .mainbar {
+    margin-left: 115px;
+    padding-right: 450px;
+    background-color: brown;
+    padding-left: 20px;
+} */
+
+.navbar {
+    padding-right: 400px;
+    margin-right: 5px;
+    margin-left: 120px;
+    padding-left: 15px;
+    border: 20px black;
+    border-radius: 12px;
+    margin-top: 28px;
+    background-color: rgb(26, 13, 84);
+}
+
+.line {
+    background-color:black;
+    padding: 1px;
+    border: 2px gray;
+    box-shadow: 2px 2px 4px gray;
+}
+
+
+
+body {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    font-size: 50;
+}
+    
+    
+#slideshow {
+    overflow: hidden;
+    height: 500px;
+    width: 1500px;
+    margin: 0 auto;
+    margin-top: 3px;
+    border-radius: 10px;
+    box-shadow: 2px 2px --4px gray;
+    background-color: white;
+}
+    
+    
+.slide {
+    float: left;
+    height: 500px;
+    width: 1500px;
+}
+    
+    
+.slide-wrapper {
+    
+    
+    width: calc(1500px * 4);
+    animation: slide 10s ease infinite;
+}
+    
+   
+.slide:nth-child(1) {
+    background: white;
+    /* background-color: white; */
+}
+    
+.slide:nth-child(2) {
+    background: white;
+}
+    
+.slide:nth-child(3) {
+    background: white;
+}
+    
+.slide:nth-child(4) {
+    background: white;
+}
+    
+    
+@keyframes slide {
+    
+    
+    20% {
+        margin-left: 0px;
+    }
+    
+    40% {
+        margin-left: calc(-1500px * 1);
+    }
+    
+    60% {
+        margin-left: calc(-1500px * 2);
+    }
+    
+    80% {
+        margin-left: calc(-1500px * 3);
+    }
+}
+
+.welcome {
+    margin: 30px;
+    font-size: larger;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-style: none;
+    color: gray;
+    /* font-size: small; */
+    font-weight: 300;
+}
+
+.intro {
+    /* font-weight: 900; */
+    text-align: center;
+    /* text-shadow: 1px 1px 2px black; */
+    /* font-family: 'Poppins', sans-serif;  */
+    color: rgb(94, 100, 216);
+}
+
+.intro1 {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 550px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+}
+
+.para {
+    text-align: left;
+    margin-top: 15px;
+    /* margin-bottom: 10px; */
+    padding-left: 350px;
+    margin-right: 350px;
+    /* font-size: small; */
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-size: large;
+}
+
+ul li ul.dropdown{
+    /* min-width: 100%; 
+    background: #ffffff;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    left: 0; */
+
+    min-width: 10%;     /* Set width of the dropdown */
+    background: #515a7a;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    left: 10;
+    left: 718px;
+}
+
+ul li:hover ul.dropdown{
+    display: block;	    
+}
+
+ul li ul.dropdown li{
+    display: block;
+}
+

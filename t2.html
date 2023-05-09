@@ -1,0 +1,530 @@
+<!-- <div class='activity-data'>
+    <div class='data names'>
+        <span class='data-title'>Students Name</span>
+        <span class='data-list'>Prem Shahi</span>
+        <span class='data-list'>Deepa Chand</span>
+        <span class='data-list'>Manisha Chand</span>
+        <span class='data-list'>Pratima Shahi</span>
+        <span class='data-list'>Man Shahi</span>
+        <span class='data-list'>Ganesh Chand</span>
+        <span class='data-list'>Bikash Chand</span>
+    </div>
+    <div class='data email'>
+        <span class='data-title'>Company</span>
+        <span class='data-list'>Byjus</span>
+        <span class='data-list'>Uber</span>
+        <span class='data-list'>Adobe</span>
+        <span class='data-list'>Netflix</span>
+        <span class='data-list'>Amazon</span>
+        <span class='data-list'>Salesforce</span>
+        <span class='data-list'>Civo</span>
+    </div>
+    <div class='data joined'>
+        <span class='data-title'>Package(LPA)</span>
+        <span class='data-list'>17</span>
+        <span class='data-list'>15</span>
+        <span class='data-list'>12</span>
+        <span class='data-list'>12</span>
+        <span class='data-list'>9</span>
+        <span class='data-list'>9</span>
+        <span class='data-list'>7</span>
+    </div>
+    <div class='data type'>
+        <span class='data-title'>Post</span>
+        <span class='data-list'>Computer Programmer</span>
+        <span class='data-list'>Big Data Engineer</span>
+        <span class='data-list'>Software Systems Developer</span>
+        <span class='data-list'>Computer Hardware Engineer</span>
+        <span class='data-list'>Computer Support Specialist</span>
+        <span class='data-list'>Devops Engineer</span>
+        <span class='data-list'>SDE</span>
+    </div>
+
+</div> -->
+
+
+
+
+
+
+
+<!-- <ul class='nav-links'>
+    <li><a href='admin_dashboard.php'>
+        <i class='uil uil-estate'></i>
+        <span class='link-name'>Dahsboard</span>
+    </a></li>
+    <li><a href='#'>
+        <i class='uil-user-plus'></i>
+        <span class='link-name'>Add Students</span>
+    </a></li>
+    <li><a href='#'>
+        <i class='uil uil-files-landscapes'></i>
+        <span class='link-name'>Students data</span>
+    </a></li>
+    <li><a href='#'>
+        <i class='uil-arrow-up-right'></i>
+        <span class='link-name'>Placed Student</span>
+    </a></li>
+    <li><a href='#'>
+        <i class='uil uil-chart'></i>
+        <span class='link-name'>Analytics</span>
+    </a></li>
+    <li><a href='#'>
+        <i class='uil-notes'></i>
+        <span class='link-name'>Update Profile</span>
+    </a></li> -->
+
+
+
+
+
+
+
+
+
+    <!-- <div class='dash-content'>
+        <div class='overview'>
+            <div class='title'>
+                <i class='uil uil-tachometer-fast-alt'></i>
+                <span class='text'>Dashboard</span>
+            </div>
+            <div class='boxes'>
+                <div class='box box1'>
+                    <img src='img/graduated.png' style='height: 200px; width:200px'>
+                    <span class='text'>Total Placed Student</span> -->
+
+
+
+
+
+<!-- 
+                </div>
+                <div class='box box2'>
+                    <img src='img/letter.png' style='height: 200px; width:200px'>
+                    <span class='text'> Total Students</span> -->
+
+
+
+
+
+
+
+
+                <!-- </div>
+                <div class='box box3'>
+                    <img src='img/goal.png' style='height: 200px; width:200px'>
+                    <span class='text'>Highest Package Offered</span> -->
+
+
+
+
+
+
+                <!-- </div>
+            </div>
+        </div>
+        <div class='activity'>
+            <div class='title'>
+                <i class='uil uil-clock-three'></i>
+                <span class='text'>Highest Offers</span>
+            </div> -->
+
+
+
+
+
+
+
+
+
+
+   <!-- Bar graph          -->
+<!-- 
+<html>
+    <head>
+      <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+      <script type='text/javascript'>
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Year', 'Placed Students', 'Total Students'],
+              <?php  
+              
+              $sql = 'SELECT DISTINCT `batch`,count(*) AS total_students FROM `student` GROUP BY `batch`';
+              $sql2 = 'SELECT batch, SUM( status) Total_placed_studennts FROM student GROUP BY batch;';  
+              $result = mysqli_query($conn , $sql);
+              $result2 = mysqli_query($conn , $sql2);  
+              $num = mysqli_num_rows($result);
+              $i = 0;
+              if($num>0){
+                  while ($i<$num) {  
+                  $row = mysqli_fetch_assoc($result);
+                  $row2 = mysqli_fetch_assoc($result2);
+                  ?>
+                  ['<?php echo $row['batch']; ?>' ,'<?php echo $row2['Total_placed_studennts']; ?>', '<?php echo $row['total_students']; ?>'],
+                 
+                  <?php
+                  $i=$i+1;
+                  }
+              }
+  
+              ?>
+          ]);
+  
+          var options = {
+            chart: {
+              title: 'Placement Report',
+              subtitle: 'Total Students, Placed Students: '
+         
+              // $sql = 'SELECT MIN(batch) start_year,MAX(batch) last_year FROM `student` ';
+              // $result = mysqli_query($conn , $sql);
+              // $row = mysqli_fetch_assoc($result);
+              // echo $row['start_year'].''';
+              
+            },
+            bars: 'vertical' // Required for Material Bar Charts.
+          };
+  
+          var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+  
+          chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+      </script>
+    </head>
+    <body>
+      <div id='barchart_material' style='width: 900px; height: 500px;'></div>
+    </body>
+  </html>
+   -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+   <div class='dash-content'>
+    <div class='overview'>
+        <div class='title'>
+            <i class='uil uil-tachometer-fast-alt'></i>
+            <span class='text'>Top Recruitments</span>
+           
+        </div>
+        <div class='boxes'>
+            <div class='box box1'>
+                <img src='one.png' style='height: 200px; width:200px'>
+                <span class='text'>TCS</span>
+                <span class='number'>1198</span>
+            </div>
+            <div class='box box2'>
+                <img src='two.png' style='height: 200px; width:200px'>
+                <span class='text'>INFOSYS</span>
+                <span class='number'>324</span>
+            </div>
+            <div class='box box3'>
+                <img src='three.png' style='height: 200px; width:200px'>
+                <span class='text'>UBER</span>
+                <span class='number'>171</span>
+            </div>
+        </div>
+    </div>
+    <div class='activity'>
+        <div class='title'>
+            <i class='uil uil-clock-three'></i>
+            <span class='text'>Other Companies</span>
+        </div>
+        <div class='activity-data'>
+            <div class='data names'>
+                <span class='data-title'>Company Name</span>
+                <span class='data-list'>Tech Mahindra</span>
+                <span class='data-list'>Tesla</span>
+                <span class='data-list'>Jio</span>
+                <span class='data-list'>Microsoft</span>
+                <span class='data-list'>Amazon</span>
+                <span class='data-list'>Apni kaksha</span>
+                <span class='data-list'>Physics Wallah</span>
+            </div>
+            <div class='data email'>
+                <span class='data-title'>Recruitments of 2021</span>
+                <span class='data-list'>120</span>
+                <span class='data-list'>111</span>
+                <span class='data-list'>100</span>
+                <span class='data-list'>88</span>
+                <span class='data-list'>32</span>
+                <span class='data-list'>12</span>
+                <span class='data-list'>12</span>
+            </div>
+            <div class='data joined'>
+                <span class='data-title'>Recruitments of 2022</span>
+                <span class='data-list'>132</span>
+                <span class='data-list'>115</span>
+                <span class='data-list'>112</span>
+                <span class='data-list'>52</span>
+                <span class='data-list'>19</span>
+                <span class='data-list'>11</span>
+                <span class='data-list'>7</span>
+            </div>
+            <div class='data type'>
+                <span class='data-title'>Recruitments of 2023</span>
+                <span class='data-list'>87</span>
+                <span class='data-list'>123</span>
+                <span class='data-list'>121</span>
+                <span class='data-list'>121</span>
+                <span class='data-list'>99</span>
+                <span class='data-list'>65</span>
+                <span class='data-list'>32</span>
+            </div>
+            <div class='data type'>
+                <span class='data-title'>Highest Package Offered(LPA)</span>
+                <span class='data-list'>6</span>
+                <span class='data-list'>7</span>
+                <span class='data-list'>5.6</span>
+                <span class='data-list'>8</span>
+                <span class='data-list'>4.3</span>
+                <span class='data-list'>12</span>
+                <span class='data-list'>10</span>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</section> -->
+
+
+
+
+
+
+
+<!-- <div class='input-field'>
+    <label>Company Name</label>
+    <input type='number' placeholder='Company Name' name='company_name' value=<?php  ?>>
+</div>
+<div class='input-field'>
+    <label>Package</label>
+    <input type='number' placeholder='Company Name' name='package' value=<?php  ?>>
+</div>
+<div class='input-field'>
+    <label>Post</label>
+    <input type='number' placeholder='Company Name' name='post' value=<?php  ?>>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Edit modal-->
+  <!-- The Edit Modal -->
+  <div class='modal fade' id='myEditModal'>
+    <div class='modal-dialog modal-lg'>
+      <div class='modal-content'>
+      
+        <!-- Modal Header -->
+        <div class='modal-header'>
+          <h4 class='modal-title'>Edit Student</h4>
+          <button type='button' class='close' data-dismiss='modal'>&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class='modal-body'>
+
+        <form action = '/crud/index.php' method = 'post'>
+ <input type='hidden' name='snoEdit' id='snoEdit'>
+  <div class='mb-3'>
+    <label for='exampleInputEmail1' class='form-label'>Title</label>
+    <input type='text' class='form-control' id='titleEdit' name='titleEdit' aria-describedby='emailHelp'>
+    
+  </div>
+  <div class='mb-3'>
+  <label for='description' class='form-label'>Description</label>
+  <textarea class='form-control' id='descriptionEdit' name='descriptionEdit' rows='3'></textarea>
+</div>
+
+  <button type='submit' class='btn btn-primary'>Update Note </button>
+</form>
+
+        </div>
+        
+        <!-- Modal footer -->
+        <div class='modal-footer'>
+          <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form action='/miniproject_final/student_data.php' method='post'>
+    <div class='form first'>
+        <div class='details personal'>
+            <span class='title'></span>
+
+            <div class='fields'>
+                <div class='input-field'>
+                    <label>First Name</label>
+                    <input type='text' placeholder='Enter your name' name='fname' value=''>
+                </div>
+
+                <div class='input-field'>
+                    <label>Last Name</label>
+                    <input type='text' placeholder='Enter your name' name='lname' value=''>
+                </div>
+                
+                <div class='input-field'>
+                    <label>Pass-out Year</label>
+                    <input type='number' placeholder='Pass-out Year' name='batch' value=''>
+                </div>
+
+             </div>
+        </div>
+          <div class='details ID'>
+            <span class='title'></span>
+           <div class='fields'>
+                    <div class='input-field'>
+                        <label>Company Name</label>
+                        <input type='text' placeholder='Company Name' name='company' >
+                    </div>
+                    <div class='input-field'>
+                        <label>Package</label>
+                        <input type='text' placeholder='Company Name' name='package' >
+                    </div>
+                    <div class='input-field'>
+                        <label>Post</label>
+                        <input type='text' placeholder='Company Name' name='post' >
+                    </div>
+
+            <button class='nextBtn' type='submit'>
+                <span class='btnText'>Update Profile</span>
+                <i class=' uil-user-plusk'></i>
+            </button>
+        </div> 
+    </div>
+
+    
+</form>
+
+<!-- 
+<div class='input-field'>
+    <label>Placement Status</label>
+    <select name='status' required>
+        <option value='0'>Not Placed</option>
+        <option value='1'>Placed</option>
+    </select>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+<!-- <div class='modal fade' id='myEditModalBatchWise' role='dialog'>
+    <div class='modal-dialog modal-lg'>
+      <div class='modal-content'>
+        <div class='modal-header'>
+          <button type='button' class='close' data-dismiss='modal'>&times;</button>
+          <h4 class='modal-title'>Modal Header</h4>
+        </div>
+        <div class='modal-body'>
+          <p>This is a large modal.</p>
+        </div>
+        <div class='modal-footer'>
+          <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+<script>
+    function automaticCopied(){
+        console.log('yes');
+        var copyText = document.getElementById('myInput');
+
+copyText.select();
+copyText.setSelectionRange(0, 99999); 
+
+
+navigator.clipboard.writeText(copyText.value);
+    }
+</script>

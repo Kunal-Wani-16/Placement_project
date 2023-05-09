@@ -1,0 +1,68 @@
+SELECT student.fname,student.lname,student_placed_info.company,student_placed_info.package,student_placed_info.post from student JOIN student_placed_info ON student.prn = student_placed_info.prn ORDER BY student_placed_info.package;
+
+
+
+
+
+
+
+<div class='container'>
+  // <!-- Button to Open the Modal -->
+  <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#myModal'>
+    Open modal
+  </button>
+
+  <!-- The Modal -->
+  <div class='modal fade' id='myModal'>
+    <div class='modal-dialog modal-xl'>
+      <div class='modal-content'>
+      
+        <!-- Modal Header -->
+        <div class='modal-header'>
+          <h4 class='modal-title'>Modal Heading</h4>
+          <button type='button' class='close' data-dismiss='modal'>&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class='modal-body'>
+          Modal body..
+        </div>
+        
+        <!-- Modal footer -->
+        <div class='modal-footer'>
+          <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  <table id='myTable'>
+            <thead>
+              <tr>
+                <!-- <th>ID</th> -->
+                <th>Name</th>
+                <th>Age</th>
+                <th>PRN NO</th>
+                <!-- <th>Roll No</th> -->
+                <th>Email</th>
+                <th>Contact No</th>
+                <th>Status</th>
+                <th>Batch</th>
+                <th>Actions</th>
+                
+              </tr>
+            </thead>
+            <tbody>
